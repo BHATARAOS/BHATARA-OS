@@ -37,45 +37,6 @@
 2. **Nonaktifkan Pembatasan Proses Turunan (*Child Process Restrictions*):**
    * Buka *Setelan → Tentang Ponsel*, ketuk **Versi OS / Build Number** sebanyak 7 kali hingga **Opsi Pengembang (*Developer Options*)** aktif.
    * Masuk ke *Setelan Tambahan → Opsi Pengembang*, cari dan aktifkan **Nonaktifkan pembatasan proses turunan (*Disable child process restrictions*)**.
-<div align="center">
-  <img src="assets/banner.jpg" alt="BHATARA OS Banner" width="100%" />
-  <h1>BHATARA OS v2.0.1.2 (Termux Edition)</h1>
-  <p>
-    <strong>Lingkungan Desktop Linux Ubuntu 22.04 (Jammy Jellyfish) + XFCE4 di Android tanpa Root</strong><br/>
-    <em>Ubuntu 22.04 (Jammy Jellyfish) + XFCE4 Linux Desktop Environment on Android without Root</em>
-  </p>
-</div>
-
----
-
-## Tampilan Desktop / Desktop Showcase
-
-| **`jammy:gnome` (GNOME)** | **`jammy:xfce4` (XFCE4 - Utama)** | **`jammy:mate` (MATE)** |
-| :---: | :---: | :---: |
-| ![GNOME](assets/jammy_gnome.png) | ![XFCE4](assets/jammy_xfce4.png) | ![MATE](assets/desktop.jpg) |
-| Tampilan desktop GNOME | Tampilan utama ringan BHATARA OS | Tampilan desktop MATE |
-
----
-
-## Prasyarat Sistem / System Requirements
-
-* **Perangkat / Device:** Android ARM64 (`aarch64`), disarankan Android 10–16.
-* **Aplikasi / Apps:**
-  * [Termux](https://f-droid.org/packages/com.termux/) (wajib versi F-Droid atau GitHub Releases, bukan Play Store).
-  * [AVNC](https://f-droid.org/packages/com.gaurav.avnc/) (aplikasi VNC Viewer untuk menampilkan layar desktop).
-* **Penyimpanan / Storage:** Minimal ruang kosong **4 GB**.
-
----
-
-## Pengaturan Wajib Android (Khusus Android 12–16 / HyperOS / OneUI)
-
-> **Penting:** Lewati bagian ini hanya jika Anda menggunakan Android 11 ke bawah. Pada Android 12 hingga 16, sistem akan menghentikan proses Termux secara paksa (`[Process completed (signal 9)]`) jika pengaturan di bawah ini belum diaktifkan.
-
-1. **Matikan Pembatasan Baterai Termux:**
-   Buka *Setelan HP → Aplikasi → Termux → Baterai*, lalu pilih **Tidak ada pembatasan (*No restrictions*)**.
-2. **Nonaktifkan Pembatasan Proses Turunan (*Child Process Restrictions*):**
-   * Buka *Setelan → Tentang Ponsel*, ketuk **Versi OS / Build Number** sebanyak 7 kali hingga **Opsi Pengembang (*Developer Options*)** aktif.
-   * Masuk ke *Setelan Tambahan → Opsi Pengembang*, cari dan aktifkan **Nonaktifkan pembatasan proses turunan (*Disable child process restrictions*)**.
 
 ---
 
