@@ -97,6 +97,28 @@ vncserver :1 -localhost yes -SecurityTypes None -geometry 1280x720 -depth 24
 
 ---
 
+
+<h2>🎨 Instalasi &amp; Menjalankan Varian Desktop Tambahan (GNOME &amp; MATE)</h2>
+<p>Selain tampilan utama ringan default (<b>XFCE4 / <code>jammy:xfce4</code></b>) di atas, Anda juga dapat menginstal dan menjalankan varian <b>MATE</b> atau <b>GNOME</b> melalui shell <b>Termux (<code>~ $</code>)</b>:</p>
+
+<h3>1. Instal &amp; Jalankan Varian MATE (<code>jammy:mate</code>)</h3>
+<p><b>Langkah Instalasi (jalankan di Termux <code>~ $</code>):</b></p>
+<pre><code>termux-wake-lock &amp;&amp; udroid install jammy:mate</code></pre>
+<p><b>Menjalankan Desktop MATE di AVNC:</b></p>
+<pre><code>udroid login jammy:mate</code></pre>
+<p>Setelah masuk ke prompt Ubuntu (<code>root@localhost:~#</code>), atur sesi VNC dan nyalakan server:</p>
+<pre><code>mkdir -p ~/.vnc &amp;&amp; printf '#!/bin/sh\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nexport XDG_RUNTIME_DIR=/tmp/runtime-root\nmkdir -p $XDG_RUNTIME_DIR &amp;&amp; chmod 700 $XDG_RUNTIME_DIR\nexec dbus-launch --exit-with-session mate-session\n' &gt; ~/.vnc/xstartup &amp;&amp; chmod +x ~/.vnc/xstartup &amp;&amp; vncserver :1 -localhost yes -SecurityTypes None -geometry 1280x720 -depth 24</code></pre>
+
+<h3>2. Instal &amp; Jalankan Varian GNOME (<code>jammy:gnome</code>)</h3>
+<p><b>Langkah Instalasi (jalankan di Termux <code>~ $</code>):</b></p>
+<pre><code>termux-wake-lock &amp;&amp; udroid install jammy:gnome</code></pre>
+<p><b>Menjalankan Desktop GNOME (Mode Flashback) di AVNC:</b></p>
+<pre><code>udroid login jammy:gnome</code></pre>
+<p>Setelah masuk ke prompt Ubuntu (<code>root@localhost:~#</code>), pasang komponen VNC beserta sesi GNOME Flashback (stabil tanpa <code>systemd</code> di <code>proot</code>), lalu nyalakan server:</p>
+<pre><code>apt update &amp;&amp; apt install -y tigervnc-standalone-server dbus-x11 gnome-panel metacity gnome-menus gnome-flashback feh &amp;&amp; mkdir -p ~/.vnc &amp;&amp; printf '#!/bin/sh\nunset SESSION_MANAGER\nunset DBUS_SESSION_BUS_ADDRESS\nexport XDG_RUNTIME_DIR=/tmp/runtime-root\nmkdir -p $XDG_RUNTIME_DIR &amp;&amp; chmod 700 $XDG_RUNTIME_DIR\nexport XDG_CURRENT_DESKTOP=GNOME-Flashback:GNOME\nexport XDG_MENU_PREFIX=gnome-\nmetacity --replace &amp;\ngnome-flashback &amp;\nexec dbus-run-session -- gnome-panel\n' &gt; ~/.vnc/xstartup &amp;&amp; chmod +x ~/.vnc/xstartup &amp;&amp; vncserver :1 -localhost yes -SecurityTypes None -geometry 1280x720 -depth 24</code></pre>
+
+<p><b>Koneksi AVNC &amp; Menutup Sesi:</b> Buka aplikasi <b>AVNC</b> lalu sambungkan ke <code>127.0.0.1</code> port <code>5901</code> (kosongkan kolom kata sandi). Sebelum berpindah varian desktop, matikan server VNC di dalam Ubuntu dengan perintah <code>pkill -9 -f Xtigervnc ; rm -rf /tmp/.X*-lock /tmp/.X11-unix/X* /root/.vnc/*.pid ; exit</code>.</p>
+
 ## Penggunaan Sehari-hari / Daily Usage
 
 **Menyalakan Kembali BHATARA OS:**
