@@ -176,11 +176,15 @@ EOF
 
 # Detect target rootfs directories (explicit argument, Termux proot-distro/udroid)
 FOUND=0
-if [ -n "${1:-}" ] && [ -d "$1" ]; then
+if [ "${1:-}" = "--host" ] || [ "${1:-}" = "/" ]; then
+    apply_to_rootfs "/" 2>/dev/null || true
+    FOUND=1
+elif [ -n "${1:-}" ] && [ -d "$1" ]; then
     apply_to_rootfs "$1"
     FOUND=1
 else
     for base_dir in \
+        "${PREFIX:-/data/data/com.termux/files/usr}/var/lib/udroid/installed-filesystems" \
         "${PREFIX:-/data/data/com.termux/files/usr}/var/lib/proot-distro/installed-rootfs" \
         "${HOME}/.udroid/installed-rootfs"; do
         if [ -d "${base_dir}" ]; then

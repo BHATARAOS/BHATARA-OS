@@ -141,3 +141,26 @@ termux-wake-unlock
 
 * Kontribusi selalu diterima dengan senang hati melalui **Pull Request** maupun **Issues**.
 * Dibangun di atas fondasi open-source [ubuntu-on-android (Udroid)](https://github.com/RandomCoderOrg/ubuntu-on-android) oleh **RandomCoderOrg** di bawah lisensi **MIT License**.
+
+<hr>
+<h2>🖥️ Mode Desktop &amp; Multi-Platform (Windows, Linux, macOS / Docker)</h2>
+<p><code>install.sh</code> mendukung deteksi platform otomatis untuk <b>Android (Termux)</b>, <b>Windows 10/11 (WSL2)</b>, <b>Linux Desktop / ChromeOS / Raspberry Pi</b>, serta <b>macOS / Browser (Docker + noVNC)</b> dengan pilihan varian <b>XFCE4</b>, <b>MATE</b>, dan <b>GNOME Flashback</b>.</p>
+
+<h3>1. Windows 10 / 11 (WSL2)</h3>
+<ul>
+  <li>Unduh dan ekstrak repositori ini di Windows Explorer.</li>
+  <li>Klik ganda <b><code>install-windows.bat</code></b> untuk memasang WSL2 Ubuntu dan BHATARA OS secara otomatis.</li>
+  <li>Setelah selesai, klik ganda <b><code>start-windows.bat</code></b> untuk menyalakan desktop (XFCE4 / MATE / GNOME) dan hubungkan VNC Viewer (TigerVNC / RealVNC) ke <code>127.0.0.1:5901</code>.</li>
+</ul>
+
+<h3>2. Linux Desktop / ChromeOS (Crostini) / Raspberry Pi</h3>
+<p>Mendukung Ubuntu, Debian, Kali, Linux Mint, Fedora, dan Arch Linux:</p>
+<pre><code>git clone https://github.com/BHATARAOS/BHATARA-OS.git &amp;&amp; cd BHATARA-OS &amp;&amp; chmod +x install.sh scripts/*.sh &amp;&amp; ./install.sh</code></pre>
+<p>Untuk memasang tema dan wallpaper BHATARA OS saja ke desktop Linux saat ini:</p>
+<pre><code>./install.sh --theme-only</code></pre>
+<p>Perintah cepat setelah terpasang: jalankan <code>bhatara xfce4</code> (atau <code>bhatara mate</code> / <code>bhatara gnome</code>) untuk menyalakan VNC, dan <code>bhatara stop</code> untuk mematikan server.</p>
+
+<h3>3. macOS / Server / Akses Browser (Docker + noVNC)</h3>
+<pre><code>git clone https://github.com/BHATARAOS/BHATARA-OS.git &amp;&amp; cd BHATARA-OS &amp;&amp; docker compose up -d --build</code></pre>
+<p>Buka desktop langsung di browser melalui <code>http://localhost:6080</code> atau VNC Viewer di <code>localhost:5901</code>. Untuk mematikan kontainer, jalankan <code>docker compose down</code>.</p>
+

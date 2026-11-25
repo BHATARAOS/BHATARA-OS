@@ -1,0 +1,11 @@
+services:
+  bhatara-os:
+    build: .
+    container_name: bhatara-os
+    ports:
+      - "5901:5901"
+      - "6080:6080"
+    environment:
+      - VNC_GEOMETRY=1280x720
+    shm_size: "1gb"
+    restart: unless-stopped
